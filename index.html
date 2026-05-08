@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>股市模擬網站</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>股市模擬網站</h1>
+      <p>台股 / 美股 / 虛擬貨幣 即時模擬交易</p>
+    </header>
+
+    <main class="container">
+      <section class="card account">
+        <h2>帳戶概況</h2>
+        <div id="account"></div>
+        <button id="resetBtn">重設模擬帳戶</button>
+      </section>
+
+      <section class="card">
+        <h2>行情</h2>
+        <div id="markets"></div>
+      </section>
+
+      <section class="card">
+        <h2>下單</h2>
+        <form id="tradeForm">
+          <label>
+            市場
+            <select id="marketSelect" required></select>
+          </label>
+          <label>
+            商品
+            <select id="symbolSelect" required></select>
+          </label>
+          <label>
+            方向
+            <select id="sideSelect" required>
+              <option value="buy">買進</option>
+              <option value="sell">賣出</option>
+            </select>
+          </label>
+          <label>
+            委託類型
+            <select id="typeSelect" required>
+              <option value="market">市價單</option>
+              <option value="limit">限價單</option>
+            </select>
+          </label>
+          <label id="limitPriceWrap" style="display: none">
+            限價
+            <input id="limitPriceInput" type="number" min="0.00000001" step="any" />
+          </label>
+          <label>
+            數量
+            <input id="qtyInput" type="number" min="0.00000001" step="any" required />
+          </label>
+          <button type="submit">送出委託</button>
+        </form>
+        <p id="tradeMsg"></p>
+      </section>
+
+      <section class="card">
+        <h2>未成交委託</h2>
+        <div id="orders"></div>
+      </section>
+
+      <section class="card">
+        <h2>持倉</h2>
+        <div id="positions"></div>
+      </section>
+
+      <section class="card">
+        <h2>交易紀錄</h2>
+        <div id="trades"></div>
+      </section>
+    </main>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
